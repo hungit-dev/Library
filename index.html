@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+  </head>
+
+  <body>
+    <button class="new-book">New Book</button>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Pages</th>
+        <th>Id</th>
+      </tr>
+    </table>
+
+    <form action="">
+      <fieldset>
+        <legend>Book information:</legend>
+        <div class="name-box">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
+        </div>
+
+        <div class="author-box">
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author" />
+        </div>
+
+        <div class="title-box">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" />
+        </div>
+
+        <div class="status-box">
+          <label for="status">Status:</label>
+          <select name="status" id="status">
+            <option value="read">Read</option>
+            <option value="haven't read">Haven't read</option>
+          </select>
+        </div>
+        <div class="pages-box">
+          <label for="pages">Pages:</label>
+          <input type="text" id="pages" name="pages" />
+        </div>
+        <div class="button-box">
+          <button class="submit-button">Submit</button>
+        </div>
+      </fieldset>
+    </form>
+
+    <script src="library.js"></script>
+  </body>
+</html>
