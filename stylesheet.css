@@ -8,7 +8,10 @@ body {
   align-items: center;
   gap: 30px;
 }
-
+button {
+  width: 100%;
+  height: auto;
+}
 table {
   width: 35vw;
   border: 1px solid black;
@@ -16,36 +19,36 @@ table {
 th,
 td {
   border: 1px solid black;
-  
 }
 form {
   width: 40vw;
-  display: none;
 }
 
 input,
 select {
   width: 250px;
 }
-button {
-  width: 100%;
-  height: 3vh;
-}
 /*class*/
 .author-box,
 .name-box,
 .status-box,
 .pages-box,
-.title-box,
-.button-box {
+.title-box {
   display: flex;
   justify-content: center;
 }
-.new-book {
+.button-box {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+.new-book-button {
   width: 80px;
   height: 50px;
 }
-.submit-button {
+.submit-button,
+.close-button {
   width: 70px;
   height: 30px;
 }

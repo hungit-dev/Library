@@ -1,5 +1,5 @@
-// Function constructor for taking books's information
 const myLibrary = [];
+// Function constructor for taking books's information
 function Book(name, author, title, status, pages) {
   this.name = name;
   this.author = author;
@@ -16,11 +16,12 @@ Book.prototype.changeReadStatus = function () {
   }
 };
 
-//Function for displaying books's information in table
+//Function for displaying books's information in table and theirs buttons
 const table = document.querySelector("table > tbody");
 function displayBookInTable(book) {
   //create row for each book
   const newRow = document.createElement("tr");
+  newRow.setAttribute("data-id", book.id);
   table.appendChild(newRow);
 
   //create row cell for each value of book
@@ -65,8 +66,11 @@ function displayBookInTable(book) {
   newRow.appendChild(removeButton);
   removeButton.addEventListener("click", function () {
     newRow.remove();
-    const index = myLibrary.indexOf(book);
-    myLibrary.splice(index, 1);
+    const rowId = newRow.dataset.id;
+    const index = myLibrary.findIndex((b) => b.id === rowId);
+    if (index !== -1) {
+      myLibrary.splice(index, 1);
+    }
   });
 }
 
@@ -80,18 +84,24 @@ function refreshUserInput() {
 }
 
 //Display the form for user to add new Book
-const form = document.querySelector("form");
-const displayFormButton = document.querySelector(".new-book");
+const dialog = document.querySelector("dialog");
+const displayFormButton = document.querySelector(".new-book-button");
 displayFormButton.addEventListener("click", function () {
-  form.style.display = "block";
+  dialog.showModal();
 });
 
-// Prevent submit button's default . Instead, make the button send value to add new Book , and display Book info in table
+// Prevent submit button's default . Instead, make the button send value to add new Book ,display Book info in table or close the form
 const bookName = document.querySelector("#name");
 const author = document.querySelector("#author");
 const title = document.querySelector("#title");
 const bookStatus = document.querySelector("#status");
 const pages = document.querySelector("#pages");
+
+const closeButton = document.querySelector(".close-button");
+closeButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  dialog.close();
+});
 
 const submitButton = document.querySelector(".submit-button");
 submitButton.addEventListener("click", function (event) {
@@ -117,4 +127,5 @@ submitButton.addEventListener("click", function (event) {
   displayBookInTable(myBook);
   myLibrary.push(myBook);
   refreshUserInput();
+  dialog.close();
 });
