@@ -1,20 +1,23 @@
 const myLibrary = [];
-// Function constructor for taking books's information
-function Book(name, author, title, status, pages) {
-  this.name = name;
-  this.author = author;
-  this.title = title;
-  this.status = status;
-  this.pages = pages;
-  this.id = crypto.randomUUID();
-}
-Book.prototype.changeReadStatus = function () {
-  if (this.status === "read") {
-    this.status = "haven't read";
-  } else if (this.status === "haven't read") {
-    this.status = "read";
+// Class constructor for taking books's information
+
+class Book {
+  constructor(name, author, title, status, pages) {
+    this.name = name;
+    this.author = author;
+    this.title = title;
+    this.status = status;
+    this.pages = pages;
+    this.id = crypto.randomUUID();
   }
-};
+  changeReadStatus() {
+    if (this.status === "read") {
+      this.status = "haven't read";
+    } else if (this.status === "haven't read") {
+      this.status = "read";
+    }
+  }
+}
 
 //Function for displaying books's information in table and theirs buttons
 const table = document.querySelector("table > tbody");
